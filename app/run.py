@@ -1,6 +1,7 @@
 import json
 import plotly
 import pandas as pd
+import numpy as np
 
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
@@ -10,7 +11,7 @@ from flask import render_template, request, jsonify
 from plotly.graph_objs import Bar
 from sklearn.externals import joblib
 from sqlalchemy import create_engine
-
+from plotly.graph_objs import Scatter
 
 app = Flask(__name__)
 
@@ -39,13 +40,75 @@ model = joblib.load("../models/classifier.pkl")
 def index():
     
     # extract data needed for visuals
-    # TODO: Below is an example - modify to extract data for your own visuals
+    categories = df.drop(['id','message','original','genre'], axis=1)
+    category_counts = categories.sum().sort_values()
+    
+    sorted_category_counts = category_counts.values
+    sorted_category_names = category_counts.index
+
+    news = df.loc[df['genre'] == 'news'].drop(['id','message','original','genre'], axis=1)
+    news_counts = news.sum()
+    social = df.loc[df['genre'] == 'social'].drop(['id','message','original','genre'], axis=1)
+    social_counts = social.sum()
+    direct = df.loc[df['genre'] == 'direct'].drop(['id','message','original','genre'], axis=1)
+    direct_counts = direct.sum()   
+    
+    # Leave example visualization of genre
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
     
     # create visuals
-    # TODO: Below is an example - modify to create your own visuals
+    # Visualization of counts by category
     graphs = [
+        {
+            'data': [
+                Bar(
+                    y=sorted_category_names,
+                    x=sorted_category_counts,
+                    orientation = 'h'
+                )
+            ],
+
+            'layout': {
+                'height': 750,
+                'title': 'Counts of categories',
+                'yaxis': {
+                    'title': "Category"
+                },
+                'xaxis': {
+                    'title': "Counts"
+                }
+            }
+        },
+        {
+            'data': [
+                    Scatter(
+                        x=news_counts.index,
+                        y=news_counts.values,
+                        name='news'
+                    ),
+                    Scatter(
+                        x=direct_counts.index,
+                        y=direct_counts.values,
+                        name='direct'
+                    ),
+                    Scatter(
+                        x=social_counts.index,
+                        y=social_counts.values,
+                        name='social'
+                    )                
+            ],
+
+            'layout': {
+                'title': 'Distribution of Counts by Genre',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Genre"
+                }
+            }
+        },
         {
             'data': [
                 Bar(
