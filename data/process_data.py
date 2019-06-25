@@ -32,14 +32,14 @@ def clean_data(df):
     categories.columns = category_colnames
     
     for column in categories:
-        # set each value to be the last character of the string
-        categories[column] = categories[column].apply(lambda x: x.strip()[-1])
+        # set each value to be the last character of the string, convert to a float and coverts any value not a 1 or 0 to a 1
+        categories[column] = categories[column].apply(lambda x: 1.0 if float(x.strip()[-1]) > 0 else 0)
     
         # convert column from string to numeric
-        categories[column] = categories[column].apply(lambda x: int(x))
+        #categories[column] = categories[column].apply(lambda x: int(x))
 
         # some values are not 0 or 1.  Make all the others 1.
-        categories[column] = categories[column].apply(lambda x: 1 if x > 0 else 0)
+        #categories[column] = categories[column].apply(lambda x: 1 if x > 0 else 0)
    
 
     # drop the original categories column from `df`
