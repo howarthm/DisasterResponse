@@ -51,10 +51,10 @@ def build_model():
     Use the best_params returned from a GridSearch from an experiment in a jupyter notebook
     Return the model
     """
-    clf = RandomForestClassifier(min_samples_split=2,n_estimators=200)
+    clf = RandomForestClassifier(min_samples_split=2)
 
     pipeline = Pipeline([
-        ('vect', CountVectorizer(tokenizer=tokenize,max_df=0.5,max_features=5000)),
+        ('vect', CountVectorizer(tokenizer=tokenize,max_df=0.5)),
         ('tfidf', TfidfTransformer(use_idf=True)),
         ('clf', MultiOutputClassifier(clf)),
     ])
