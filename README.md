@@ -12,7 +12,7 @@
     `python run.py`
 
 3. Go to http://0.0.0.0:3001/
-4. The project is also hosted on Heroku: https://github.com/howarthm/DisasterResponse
+4. The project is also hosted on Heroku: https://mh-disasterresponse.herokuapp.com/
 
 ### Folders:
 The web part of the project is in app.  run.py contains the 3 visualizations of the data.
