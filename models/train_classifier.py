@@ -68,10 +68,7 @@ def evaluate_model(model, X_test, Y_test, category_names):
     """
     y_pred = model.predict(X_test)
 
-    for i in range(0, len(category_names)):
-        print(category_names[i])
-        print(classification_report(Y_test.iloc[:, [i]], y_pred[:, i]))
-
+    print(classification_report(Y_test.iloc[:, [i]], y_pred[:, i]))
 
 
 def save_model(model, model_filepath):
