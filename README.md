@@ -24,20 +24,20 @@ For example, if you typed "I felt multiple tremors", you would have the 2 catego
 ### Folders:
 The web part of the project is in app.  run.py contains the 3 visualizations of the data.
 Under the data folder are the csv files with initial data and a database file, DisasterReponse.db, with cleaned data.  process_data.py cleans the initial data.
-In models, classifier is the trained model and train_classifier trained the model.
-app
-    Templates
-        go.html
-        master.html
-    run.py
-data
-    DisasterReponse.db
-    disaster_categories.csv
-    disaster_messages.csv
-    process_data.py
-models
-    classifier.pkl
-    train_classifier.py
+In models, classifier is the trained model and train_classifier trained the model.  
+app  
+    Templates  
+        go.html  
+        master.html  
+    run.py  
+data  
+    DisasterReponse.db  
+    disaster_categories.csv  
+    disaster_messages.csv  
+    process_data.py  
+models  
+    classifier.pkl  
+    train_classifier.py  
     
 
 
