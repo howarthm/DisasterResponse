@@ -31,18 +31,18 @@ Under the data folder are the csv files with initial data and a database file, D
 In models, classifier is the trained model and train_classifier trained the model.  
 
 .
-+-- app
-+-- Templates
-|   +-- go.html 
-|   +-- master.html
-|   +-- run.py
-+-- data
-|   +-- DisasterReponse.db
-|   +-- disaster_categories.csv
-|   +-- disaster_messages.csv
-|   +-- process_data.py
-+-- models
-|   +-- classifier.pkl
++-- app  
++-- Templates  
+|   +-- go.html   
+|   +-- master.html  
+|   +-- run.py  
++-- data  
+|   +-- DisasterReponse.db  
+|   +-- disaster_categories.csv  
+|   +-- disaster_messages.csv  
+|   +-- process_data.py  
++-- models  
+|   +-- classifier.pkl  
 |   +-- train_classifier.py
     
 
