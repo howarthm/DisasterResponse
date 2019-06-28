@@ -1,5 +1,12 @@
 # Disaster Response Pipeline Project
 
+### Introduction:
+The disaster reponse pipeline takes as input a message and categorizes it in one or more of the 36 categories.
+
+For example, if you typed "I felt multiple tremors", you would have the 2 categories "related" and "earthquake" returned.
+
+![Alt text](Screenshot1.PNG?raw=true)
+
 ### Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
 
