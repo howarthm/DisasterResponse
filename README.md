@@ -1,11 +1,15 @@
 # Disaster Response Pipeline Project
 
 ### Introduction:
-The disaster reponse pipeline takes as input a message and categorizes it in one or more of the 36 categories.
+When a disaster happens it is helpful to know what kind of emergencies are happening.  Quickly categorizing news reports, texts, and calls helps can help the organizer quickly assess the situation and provide assistance.  The disaster reponse pipeline app gives a user interface to test new messages as it takes as input a message and categorizes it in one or more of the 36 categories.  
 
 For example, if you typed "I felt multiple tremors", you would have the 2 categories "related" and "earthquake" returned.
 
 ![Alt text](Screenshot1.PNG?raw=true)
+
+Also, included in the app are some visualizations of the training data used.
+
+![Alt text](Screenshot2.PNG?raw=true)
 
 ### Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
